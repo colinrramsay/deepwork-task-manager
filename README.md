@@ -1,33 +1,27 @@
-# My Awesome Project
-Write a short sentence or two about this project and what it does. Be sure to include a link and a screenshot (we're front end devs so we can actually see our work!).
-
-**Link to project:** http://recruiters-love-seeing-live-demos.com/
+# Deep Work Task Manager
+Simple app for tracking to-do tasks with filtering for important, deep work tasks.
 
 ![alt tag](http://placecorgi.com/1200/650)
 
 ## How It's Made:
 
-**Tech used:** HTML, CSS, JavaScript, Framework of choice
+**Tech used:** MERN stack, Passport.js google auth + Express sessions, custom CSS
 
-Here's where you can go to town on how you actually built this thing. Write as much as you can here, it's totally fine if it's not too much just make sure you write *something*. If you don't have too much experience on your resume working on the front end that's totally fine. This is where you can really show off your passion and make up for that ten fold.
+React front end with Node.js Express server handling API fetches for auth, user and task data. API endpoints are protected with auth middleware to verify login before delivering data, and React router redirects based on auth status.
 
 ## Optimizations
-*(optional)*
 
-You don't have to include this section but interviewers *love* that you can not only deliver a final product that looks great but also functions efficiently. Did you write something then refactor it later and the result was 5x faster than the original implementation? Did you cache your assets? Things that you write in this section are **GREAT** to bring up in interviews and you can use this section as reference when studying for technical interviews!
+Tasks are held in state and updated locally to operate independently of fetch calls to Express. State is only fetch response depended on first mount to initialize tasks.
 
 ## Lessons Learned:
 
-No matter what your experience level, being an engineer means continuously learning. Every time you build something you always have those *whoa this is awesome* or *wow I actually did it!* moments. This is where you should share those moments! Recruiters and interviewers love to see that you're self-aware and passionate about growing.
+CORS between React and Express required careful setup to ensure credentials were passed for proper auth checks. Each server call needed to include the browser's session cookie, otherwise res.user and res.session objects would be inaccessible and lead to verification problems and logout issues deleting sessions.
 
-## Examples:
-Take a look at these couple examples that I have in my own portfolio:
-
-**Palettable:** https://github.com/alecortega/palettable
-
-**Twitter Battle:** https://github.com/alecortega/twitter-battle
-
-**Patch Panel:** https://github.com/alecortega/patch-panel
+## Future Optimizations:
+-Proper date field formatting & task sorting by date
+-Edit task option
+-Addl task tagging & filtering options
+-Addl styling
 
 
 
